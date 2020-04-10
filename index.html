@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<style type="text/css">
+		.welcome {
+			height: 1000px;
+			background: black;
+			background-image: url(bg3.jpg);
+			background-size: 100% 100%;
+		}
+		.welcome-text {
+			color: white;
+			font-size: 12px;
+		}
+		.welcome-1 {
+			text-align: center;
+		}
+		.howtoplay {
+			display: none;
+			background: black;
+			height: 1000px;
+			background-image: url(bg3.jpg);
+			background-size: 100% 100%;
+		}
+		.htp {
+			font-size: 60px;
+		}
+		.sn {
+			font-size: 72px;
+		}
+		.chb1 {
+			font-size: 60px;
+		}
+		.chb2 {
+			font-size: 60px;
+		}
+		.gb {
+			font-size: 60px;
+		}
+		.play {
+			font-size: 60px;
+		}
+		.playall {
+			display: none;
+			background: black;
+			height: 1000px;
+			background-image: url(bg3.jpg);
+			background-size: 100% 100%;
+		}
+		.playall1 {
+			display: none;
+			background: black;
+			height: 1000px;
+			background-image: url(bg3.jpg);
+			background-size: 100% 100%;
+		}
+		.playall2 {
+			display: none;
+			background: black;
+			height: 1000px;
+			background-image: url(bg3.jpg);
+			background-size: 100% 100%;
+		}
+		.playall3 {
+			display: none;
+			background: black;
+			height: 1000px;
+			background-image: url(bg3.jpg);
+			background-size: 100% 100%;
+		}
+		.numbers {
+			font-size: 100px;
+			color: white;
+			text-align: center;
+		}
+		.numbers1 {
+			font-size: 100px;
+			color: white;
+			text-align: center;
+		}
+		.numbers2 {
+			font-size: 100px;
+			color: white;
+			text-align: center;
+		}
+		.numbers3 {
+			font-size: 100px;
+			color: white;
+			text-align: center;
+		}
+		.looser {
+			height: 1000px;
+			display: none;			
+		}
+		.winner {
+			height: 1000px;
+			display: none;
+		}
+		.looser-text {
+			font-size: 128px;
+		}
+		.winner-text {
+			font-size: 128px;
+		}
+	</style>
+
+</head>
+<body>
+	<!-- Начальная страница -->
+	<div class="welcome"> 
+		<div>
+			<h1 class="text-monospace sn text-white text-center font-italic pt-5"> Secret Numbers </h1>
+		</div>
+		<div class="col-3 welcome-1 mx-auto font-italic pt-5">
+			<h1 class="text-white"> Добро пожаловать! </h1>		
+		</div>
+		<div class="row">
+			<!-- Кнопка "Как играть" -->
+			<div class="col-3 welcome-1 ml-5 mt-5 font-italic pt-5">
+				<button class="htp btn-info text-white rounded-pill"> Как играть? </button>
+			</div>
+			<!-- Кнопка "Поменять на фон1" -->
+			<div class="col-3 welcome-1 width-300 pt-5 mt-5 ml-5">
+				<button class="chb1 btn-warning text-white rounded-pill"> Поменять на фон1 </button>
+			</div>
+			<!-- Кнопка "Поменять на фон2" -->
+			<div class="col-3 welcome-1 width-300 pt-5 mt-5 ml-5">
+				<button class="chb2 btn-warning text-white rounded-pill"> Поменять на фон2 </button>
+			</div>
+		</div>
+		<!-- Кнопка "Играть" -->
+		<div class="col-3 welcome-1 width-300 pt-5 mt-5 ml-5 mx-auto">
+			<button class="play btn-success text-white rounded-pill"> Играть </button>
+		</div>
+	</div>
+
+	<!-- Страница "Как играть?" -->
+	<div class="howtoplay">
+		<h1 class="text-white bg-dark"> Это игра на память и умение работать с числами. Если ты нажмешь на неверное число, то ты проиграешь. Каждый раз будут генерироваться новые числа. По центру экрана будет информация про числа, которые нужно найти. На запоминание всех чисел у тебя будет 5 секунд, затем числа скроются. И тебе нужно будет по возростанию нажать на них. Но учти, что у тебя на всё про всё минута. Если ты в течении минуты не успеваешь пройти все уровни, то ты проиграешь. </h1>
+		<div class="col-3 welcome-1 width-300 pt-5 mt-5 ml-5">
+			<button class="gb btn-info text-white"> На главную </button>
+		</div>
+	</div>
+
+	<!-- Страница Игры №1 -->
+	<div class="playall">
+		<div class="bg-dark">
+			<h1 class="text-white"> LEVEL 1 </h1>
+		</div>
+		<div style="position: absolute; left: 750px; top: 400px; height: 200px" class="bg-dark col-3">
+			<h1 class="rule text-white"> Найди числа больше 50 </h1>
+		</div>
+		<div style="position: absolute; left: 450px; top: 150px; height: 200px" class="bg-dark col-3 numbers rounded-circle">
+			
+		</div>
+		<div style="position: absolute; height: 100px" class="bg-dark col-2">
+			<h1 class="text-white"> score: <span class="score text-white"></span> </h1>
+		</div>
+		<div style="position: absolute; left: 400px; top: 650px; height: 200px" class="bg-dark col-3 numbers rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1000px; top: 650px; height: 200px" class="bg-dark col-3 numbers rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1000px; top: 150px; height: 200px" class="bg-dark col-3 numbers rounded-circle">
+			
+		</div>
+	</div>
+
+
+
+	<!-- Страница Игры №2 -->
+	<div class="playall1">
+		<div class="bg-dark">
+			<h1 class="text-white"> LEVEL 2 </h1>
+		</div>
+		<div style="position: absolute; left: 750px; top: 400px; height: 200px" class="bg-dark col-3">
+			<h1 class="rule text-white"> Найди числа больше 50 </h1>
+		</div>
+		<div style="position: absolute; left: 450px; top: 150px; height: 200px" class="bg-dark col-3 numbers1 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; height: 100px" class="bg-dark col-2">
+			<h1 class="text-white"> score: <span class="score1 text-white"></span> </h1>
+		</div>
+		<div style="position: absolute; left: 400px; top: 650px; height: 200px" class="bg-dark col-3 numbers1 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1000px; top: 650px; height: 200px" class="bg-dark col-3 numbers1 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1000px; top: 150px; height: 200px" class="bg-dark col-3 numbers1 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1300px; top: 400px; height: 200px" class="bg-dark col-3 numbers1 rounded-circle">
+			
+		</div>
+	</div>
+
+
+
+	<!-- Страница Игры №3 -->
+	<div class="playall2">
+		<div class="bg-dark">
+			<h1 class="text-white"> LEVEL 3 </h1>
+		</div>
+		<div style="position: absolute; left: 750px; top: 400px; height: 200px" class="bg-dark col-3">
+			<h1 class="rule text-white"> Найди числа больше 50 </h1>
+		</div>
+		<div style="position: absolute; left: 450px; top: 150px; height: 200px" class="bg-dark col-3 numbers2 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; height: 100px" class="bg-dark col-2">
+			<h1 class="text-white"> score: <span class="score2 text-white"></span> </h1>
+		</div>
+		<div style="position: absolute; left: 400px; top: 650px; height: 200px" class="bg-dark col-3 numbers2 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1000px; top: 650px; height: 200px" class="bg-dark col-3 numbers2 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1000px; top: 150px; height: 200px" class="bg-dark col-3 numbers2 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1300px; top: 400px; height: 200px" class="bg-dark col-3 numbers2 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 150px; top: 400px; height: 200px" class="bg-dark col-3 numbers2 rounded-circle">
+			
+		</div>
+	</div>
+
+
+
+	<!-- Страница Игры №4 -->
+	<div class="playall3">
+		<div class="bg-dark">
+			<h1 class="text-white"> LEVEL 4 </h1>
+		</div>
+		<div style="position: absolute; left: 750px; top: 350px; height: 200px" class="bg-dark col-3">
+			<h1 class="rule text-white"> Найди числа больше 50 </h1>
+		</div>
+		<div style="position: absolute; left: 450px; top: 100px; height: 200px" class="bg-dark col-3 numbers3 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; height: 100px" class="bg-dark col-2">
+			<h1 class="text-white"> score: <span class="score3 text-white"></span> </h1>
+		</div>
+		<div style="position: absolute; left: 400px; top: 580px; height: 200px" class="bg-dark col-3 numbers3 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1080px; top: 580px; height: 200px" class="bg-dark col-3 numbers3 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1080px; top: 100px; height: 200px" class="bg-dark col-3 numbers3 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 1350px; top: 350px; height: 200px" class="bg-dark col-3 numbers3 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 150px; top: 350px; height: 200px" class="bg-dark col-3 numbers3 rounded-circle">
+			
+		</div>
+		<div style="position: absolute; left: 750px; top: 730px; height: 200px" class="bg-dark col-3 numbers3 rounded-circle">
+			
+		</div>
+	</div>
+
+	<!-- Страница победителя -->
+	<div class="winner bg-dark col-12">
+		<h1 class="winner-text text-success text-center"> YOU WIN! </h1>
+	</div>
+
+	<!-- Страница проигравшего -->
+	<div class="looser bg-dark col-12">
+		<h1 class="looser-text text-danger text-center"> YOU LOSE! </h1>
+	</div>
+
+
+	<script type="text/javascript">
+		let htp = document.querySelector('.htp');
+		let howtoplay = document.querySelector('.howtoplay');
+		let welcome = document.querySelector('.welcome');
+		let chb1 = document.querySelector('.chb1');
+		let chb2 = document.querySelector('.chb2');
+		let gb = document.querySelector('.gb');
+		let play = document.querySelector('.play');
+		let playall = document.querySelector('.playall');
+		let playall1 = document.querySelector('.playall1');
+		let playall2 = document.querySelector('.playall2');
+		let playall3 = document.querySelector('.playall3');
+		let numbers = document.querySelectorAll('.numbers');
+		let numbers1 = document.querySelectorAll('.numbers1');
+		let numbers2 = document.querySelectorAll('.numbers2');
+		let numbers3 = document.querySelectorAll('.numbers3');
+		let rule = document.querySelector('.rule');
+		let score = 0;
+		let score1 = 0;
+		let score2 = 0;
+		let score3 = 0;
+		let winner = document.querySelector('.winner');
+		let looser = document.querySelector('.looser');
+
+		document.querySelector('.score').innerHTML = score;
+		document.querySelector('.score1').innerHTML = score1;
+		document.querySelector('.score2').innerHTML = score2;
+		document.querySelector('.score3').innerHTML = score3;
+
+
+		// 4n - 2a
+		let nnnn1 = {
+			num1 : 20,
+			num2 : 27,
+			num3 : 51,
+			num4 : 92,
+		}
+		let nnnn2 = {
+			num1 : 22,
+			num2 : 24,
+			num3 : 57,
+			num4 : 87,
+		}
+		let nnnn3 = {
+			num1 : 52,
+			num2 : 14,
+			num3 : 72,
+			num4 : 15,
+		}
+		let nnnn4 = {
+			num1 : 57,
+			num2 : 61,
+			num3 : 14,
+			num4 : 21,
+		}
+		let nnnn5 = {
+			num1 : 41,
+			num2 : 82,
+			num3 : 71,
+			num4 : 14,
+		}
+		let nnnn6 = {
+			num1 : 82,
+			num2 : 16,
+			num3 : 41,
+			num4 : 99,
+		}
+		let nnnn7 = {
+			num1 : 49,
+			num2 : 12,
+			num3 : 51,
+			num4 : 62,
+		}
+		let nnnn8 = {
+			num1 : 59,
+			num2 : 67,
+			num3 : 11,
+			num4 : 1,
+		}
+		let nnnn9 = {
+			num1 : 61,
+			num2 : 63,
+			num3 : 15,
+			num4 : 48,
+		}
+		let nnnn10 = {
+			num1 : 13,
+			num2 : 14,
+			num3 : 93,
+			num4 : 65,
+		}
+		let nnnn11 = {
+			num1 : 71,
+			num2 : 23,
+			num3 : 57,
+			num4 : 43,
+		}
+		let nnnn12 = {
+			num1 : 13,
+			num2 : 45,
+			num3 : 61,
+			num4 : 54,
+		}
+		let nnnn13 = {
+			num1 : 29,
+			num2 : 87,
+			num3 : 63,
+			num4 : 13,
+		}
+		let nnnn14 = {
+			num1 : 15,
+			num2 : 16,
+			num3 : 51,
+			num4 : 61,
+		}
+		let nnnn15 = {
+			num1 : 69,
+			num2 : 72,
+			num3 : 1,
+			num4 : 7,
+		}
+		let nnnn16 = {
+			num1 : 41,
+			num2 : 50,
+			num3 : 54,
+			num4 : 62,
+		}
+		let nnnn17 = {
+			num1 : 12,
+			num2 : 81,
+			num3 : 23,
+			num4 : 54,
+		}
+		let nnnn18 = {
+			num1 : 97,
+			num2 : 23,
+			num3 : 41,
+			num4 : 67,
+		}
+		let nnnn19 = {
+			num1 : 12,
+			num2 : 86,
+			num3 : 53,
+			num4 : 34,
+		}
+		let nnnn20 = {
+			num1 : 51,
+			num2 : 92,
+			num3 : 7,
+			num4 : 37,
+		}
+		let nnnn21 = {
+			num1 : 34,
+			num2 : 61,
+			num3 : 78,
+			num4 : 47,
+		}
+		let nnnn22 = {
+			num1 : 34,
+			num2 : 27,
+			num3 : 93,
+			num4 : 57,
+		}
+		let nnnn23 = {
+			num1 : 22,
+			num2 : 54,
+			num3 : 12,
+			num4 : 96,
+		}
+		let nnnn24 = {
+			num1 : 36,
+			num2 : 32,
+			num3 : 67,
+			num4 : 76,
+		}
+		let nnnn25 = {
+			num1 : 53,
+			num2 : 33,
+			num3 : 71,
+			num4 : 23,
+		}
+		let nnnn26 = {
+			num1 : 54,
+			num2 : 61,
+			num3 : 23,
+			num4 : 42,
+		}
+		let nnnn27 = {
+			num1 : 39,
+			num2 : 40,
+			num3 : 58,
+			num4 : 79,
+		}
+		let nnnn28 = {
+			num1 : 20,
+			num2 : 57,
+			num3 : 53,
+			num4 : 2,
+		}
+		let nnnn29 = {
+			num1 : 32,
+			num2 : 24,
+			num3 : 57,
+			num4 : 54,
+		}
+		let nnnn30 = {
+			num1 : 66,
+			num2 : 12,
+			num3 : 89,
+			num4 : 49,
+		}
+
+
+		// 5n - 3a
+		let nnnnn1 = {
+			num1 : 20,
+			num2 : 56,
+			num3 : 51,
+			num4 : 92,
+			num5 : 21,
+		}
+		let nnnnn2 = {
+			num1 : 22,
+			num2 : 24,
+			num3 : 57,
+			num4 : 87,
+			num5 : 63,
+		}
+		let nnnnn3 = {
+			num1 : 52,
+			num2 : 14,
+			num3 : 72,
+			num4 : 78,
+			num5 : 12,
+		}
+		let nnnnn4 = {
+			num1 : 57,
+			num2 : 61,
+			num3 : 14,
+			num4 : 21,
+			num5 : 92,
+		}
+		let nnnnn5 = {
+			num1 : 41,
+			num2 : 82,
+			num3 : 71,
+			num4 : 14,
+			num5 : 51,
+		}
+		let nnnnn6 = {
+			num1 : 82,
+			num2 : 93,
+			num3 : 41,
+			num4 : 99,
+			num5 : 42,
+		}
+		let nnnnn7 = {
+			num1 : 49,
+			num2 : 12,
+			num3 : 51,
+			num4 : 62,
+			num5 : 63,
+		}
+		let nnnnn8 = {
+			num1 : 59,
+			num2 : 67,
+			num3 : 51,
+			num4 : 1,
+			num5 : 4,
+		}
+		let nnnnn9 = {
+			num1 : 61,
+			num2 : 63,
+			num3 : 15,
+			num4 : 48,
+			num5 : 58,
+		}
+		let nnnnn10 = {
+			num1 : 13,
+			num2 : 14,
+			num3 : 93,
+			num4 : 65,
+			num5 : 62,
+		}
+		let nnnnn11 = {
+			num1 : 71,
+			num2 : 23,
+			num3 : 57,
+			num4 : 43,
+			num5 : 92,
+		}
+		let nnnnn12 = {
+			num1 : 13,
+			num2 : 45,
+			num3 : 61,
+			num4 : 54,
+			num5 : 82,
+		}
+		let nnnnn13 = {
+			num1 : 29,
+			num2 : 87,
+			num3 : 63,
+			num4 : 13,
+			num5 : 92,
+		}
+		let nnnnn14 = {
+			num1 : 15,
+			num2 : 16,
+			num3 : 51,
+			num4 : 61,
+			num5 : 53,
+		}
+		let nnnnn15 = {
+			num1 : 69,
+			num2 : 72,
+			num3 : 1,
+			num4 : 7,
+			num5 : 93,
+		}
+		let nnnnn16 = {
+			num1 : 41,
+			num2 : 50,
+			num3 : 54,
+			num4 : 62,
+			num5 : 51,
+		}
+		let nnnnn17 = {
+			num1 : 12,
+			num2 : 81,
+			num3 : 23,
+			num4 : 54,
+			num5 : 74,
+		}
+		let nnnnn18 = {
+			num1 : 97,
+			num2 : 23,
+			num3 : 41,
+			num4 : 67,
+			num5 : 89,
+		}
+		let nnnnn19 = {
+			num1 : 12,
+			num2 : 86,
+			num3 : 53,
+			num4 : 34,
+			num5 : 93,
+		}
+		let nnnnn20 = {
+			num1 : 51,
+			num2 : 92,
+			num3 : 7,
+			num4 : 37,
+			num5 : 83,
+		}
+		let nnnnn21 = {
+			num1 : 34,
+			num2 : 61,
+			num3 : 78,
+			num4 : 47,
+			num5 : 65,
+		}
+		let nnnnn22 = {
+			num1 : 34,
+			num2 : 27,
+			num3 : 93,
+			num4 : 57,
+			num5 : 78,
+		}
+		let nnnnn23 = {
+			num1 : 22,
+			num2 : 54,
+			num3 : 12,
+			num4 : 96,
+			num5 : 66,
+		}
+		let nnnnn24 = {
+			num1 : 36,
+			num2 : 32,
+			num3 : 67,
+			num4 : 76,
+			num5 : 5,
+		}
+		let nnnnn25 = {
+			num1 : 53,
+			num2 : 33,
+			num3 : 71,
+			num4 : 23,
+			num5 : 85,
+		}
+		let nnnnn26 = {
+			num1 : 54,
+			num2 : 61,
+			num3 : 23,
+			num4 : 42,
+			num5 : 53,
+		}
+		let nnnnn27 = {
+			num1 : 39,
+			num2 : 40,
+			num3 : 58,
+			num4 : 79,
+			num5 : 56,
+		}
+		let nnnnn28 = {
+			num1 : 20,
+			num2 : 57,
+			num3 : 53,
+			num4 : 2,
+			num5 : 78,
+		}
+		let nnnnn29 = {
+			num1 : 32,
+			num2 : 24,
+			num3 : 57,
+			num4 : 54,
+			num5 : 59,
+		}
+		let nnnnn30 = {
+			num1 : 66,
+			num2 : 12,
+			num3 : 89,
+			num4 : 49,
+			num5 : 85,
+		}
+
+
+
+		// 6n - 3a
+		let nnnnnn1 = {
+			num1 : 20,
+			num2 : 27,
+			num3 : 51,
+			num4 : 92,
+			num5 : 42,
+			num6 : 81,
+		}
+		let nnnnnn2 = {
+			num1 : 22,
+			num2 : 24,
+			num3 : 57,
+			num4 : 87,
+			num5 : 99,
+			num6 : 34,
+		}
+		let nnnnnn3 = {
+			num1 : 52,
+			num2 : 14,
+			num3 : 72,
+			num4 : 15,
+			num5 : 34,
+			num6 : 81,
+		}
+		let nnnnnn4 = {
+			num1 : 57,
+			num2 : 61,
+			num3 : 14,
+			num4 : 21,
+			num5 : 91,
+			num6 : 23,
+		}
+		let nnnnnn5 = {
+			num1 : 41,
+			num2 : 82,
+			num3 : 71,
+			num4 : 14,
+			num5 : 73,
+			num6 : 31,
+		}
+		let nnnnnn6 = {
+			num1 : 82,
+			num2 : 16,
+			num3 : 41,
+			num4 : 99,
+			num5 : 37,
+			num6 : 78,
+		}
+		let nnnnnn7 = {
+			num1 : 49,
+			num2 : 12,
+			num3 : 51,
+			num4 : 62,
+			num5 : 82,
+			num6 : 12,
+		}
+		let nnnnnn8 = {
+			num1 : 59,
+			num2 : 67,
+			num3 : 11,
+			num4 : 1,
+			num5 : 72,
+			num6 : 23,
+		}
+		let nnnnnn9 = {
+			num1 : 61,
+			num2 : 63,
+			num3 : 15,
+			num4 : 48,
+			num5 : 63,
+			num6 : 9,
+		}
+		let nnnnnn10 = {
+			num1 : 13,
+			num2 : 14,
+			num3 : 93,
+			num4 : 65,
+			num5 : 32,
+			num6 : 62,
+		}
+		let nnnnnn11 = {
+			num1 : 71,
+			num2 : 23,
+			num3 : 57,
+			num4 : 43,
+			num5 : 32,
+			num6 : 61,
+		}
+		let nnnnnn12 = {
+			num1 : 13,
+			num2 : 45,
+			num3 : 61,
+			num4 : 54,
+			num5 : 87,
+			num6 : 15,
+		}
+		let nnnnnn13 = {
+			num1 : 29,
+			num2 : 87,
+			num3 : 63,
+			num4 : 13,
+			num5 : 97,
+			num6 : 45,
+		}
+		let nnnnnn14 = {
+			num1 : 15,
+			num2 : 16,
+			num3 : 51,
+			num4 : 61,
+			num5 : 54,
+			num6 : 39,
+		}
+		let nnnnnn15 = {
+			num1 : 69,
+			num2 : 72,
+			num3 : 1,
+			num4 : 7,
+			num5 : 38,
+			num6 : 94,
+		}
+		let nnnnnn16 = {
+			num1 : 41,
+			num2 : 50,
+			num3 : 54,
+			num4 : 62,
+			num5 : 12,
+			num6 : 68,
+		}
+		let nnnnnn17 = {
+			num1 : 12,
+			num2 : 81,
+			num3 : 23,
+			num4 : 54,
+			num5 : 62,
+			num6 : 21,
+		}
+		let nnnnnn18 = {
+			num1 : 97,
+			num2 : 23,
+			num3 : 41,
+			num4 : 67,
+			num5 : 75,
+			num6 : 41,
+		}
+		let nnnnnn19 = {
+			num1 : 12,
+			num2 : 86,
+			num3 : 53,
+			num4 : 34,
+			num5 : 11,
+			num6 : 53,
+		}
+		let nnnnnn20 = {
+			num1 : 51,
+			num2 : 92,
+			num3 : 7,
+			num4 : 37,
+			num5 : 55,
+			num6 : 34,
+		}
+		let nnnnnn21 = {
+			num1 : 34,
+			num2 : 61,
+			num3 : 78,
+			num4 : 47,
+			num5 : 89,
+			num6 : 41,
+		}
+		let nnnnnn22 = {
+			num1 : 34,
+			num2 : 27,
+			num3 : 93,
+			num4 : 57,
+			num5 : 72,
+			num6 : 13,
+		}
+		let nnnnnn23 = {
+			num1 : 22,
+			num2 : 54,
+			num3 : 12,
+			num4 : 96,
+			num5 : 37,
+			num6 : 57,
+		}
+		let nnnnnn24 = {
+			num1 : 36,
+			num2 : 32,
+			num3 : 67,
+			num4 : 76,
+			num5 : 32,
+			num6 : 74,
+		}
+		let nnnnnn25 = {
+			num1 : 53,
+			num2 : 33,
+			num3 : 71,
+			num4 : 23,
+			num5 : 42,
+			num6 : 92,
+		}
+		let nnnnnn26 = {
+			num1 : 54,
+			num2 : 61,
+			num3 : 23,
+			num4 : 42,
+			num5 : 59,
+			num6 : 29,
+		}
+		let nnnnnn27 = {
+			num1 : 39,
+			num2 : 40,
+			num3 : 58,
+			num4 : 79,
+			num5 : 18,
+			num6 : 60,
+		}
+		let nnnnnn28 = {
+			num1 : 20,
+			num2 : 57,
+			num3 : 53,
+			num4 : 2,
+			num5 : 44,
+			num6 : 79,
+		}
+		let nnnnnn29 = {
+			num1 : 32,
+			num2 : 24,
+			num3 : 57,
+			num4 : 54,
+			num5 : 45,
+			num6 : 55,
+		}
+		let nnnnnn30 = {
+			num1 : 66,
+			num2 : 12,
+			num3 : 89,
+			num4 : 49,
+			num5 : 54,
+			num6 : 33,
+		}
+
+
+
+		// 7n - 4a
+		let nnnnnnn1 = {
+			num1 : 20,
+			num2 : 27,
+			num3 : 51,
+			num4 : 92,
+			num5 : 34,
+			num6 : 51,
+			num7 : 88,
+		}
+		let nnnnnnn2 = {
+			num1 : 22,
+			num2 : 24,
+			num3 : 57,
+			num4 : 87,
+			num5 : 23,
+			num6 : 51,
+			num7 : 76,
+		}
+		let nnnnnnn3 = {
+			num1 : 52,
+			num2 : 14,
+			num3 : 72,
+			num4 : 15,
+			num5 : 23,
+			num6 : 92,
+			num7 : 99,
+		}
+		let nnnnnnn4 = {
+			num1 : 57,
+			num2 : 61,
+			num3 : 14,
+			num4 : 21,
+			num5 : 51,
+			num6 : 61,
+			num7 : 50,
+		}
+		let nnnnnnn5 = {
+			num1 : 41,
+			num2 : 82,
+			num3 : 71,
+			num4 : 14,
+			num5 : 90,
+			num6 : 44,
+			num7 : 61,
+		}
+		let nnnnnnn6 = {
+			num1 : 82,
+			num2 : 16,
+			num3 : 41,
+			num4 : 99,
+			num5 : 95,
+			num6 : 29,
+			num7 : 51,
+		}
+		let nnnnnnn7 = {
+			num1 : 49,
+			num2 : 12,
+			num3 : 51,
+			num4 : 62,
+			num5 : 95,
+			num6 : 41,
+			num7 : 59,
+		}
+		let nnnnnnn8 = {
+			num1 : 59,
+			num2 : 67,
+			num3 : 11,
+			num4 : 1,
+			num5 : 5,
+			num6 : 3,
+			num7 : 5,
+		}
+		let nnnnnnn9 = {
+			num1 : 61,
+			num2 : 63,
+			num3 : 15,
+			num4 : 48,
+			num5 : 55,
+			num6 : 52,
+			num7 : 28,
+		}
+		let nnnnnnn10 = {
+			num1 : 13,
+			num2 : 14,
+			num3 : 93,
+			num4 : 65,
+			num5 : 39,
+			num6 : 85,
+			num7 : 67,
+		}
+		let nnnnnnn11 = {
+			num1 : 71,
+			num2 : 23,
+			num3 : 57,
+			num4 : 43,
+			num5 : 48,
+			num6 : 84,
+			num7 : 56,
+		}
+		let nnnnnnn12 = {
+			num1 : 13,
+			num2 : 45,
+			num3 : 61,
+			num4 : 54,
+			num5 : 44,
+			num6 : 74,
+			num7 : 94,
+		}
+		let nnnnnnn13 = {
+			num1 : 29,
+			num2 : 87,
+			num3 : 63,
+			num4 : 13,
+			num5 : 82,
+			num6 : 54,
+			num7 : 42,
+		}
+		let nnnnnnn14 = {
+			num1 : 15,
+			num2 : 16,
+			num3 : 51,
+			num4 : 61,
+			num5 : 2,
+			num6 : 74,
+			num7 : 94,
+		}
+		let nnnnnnn15 = {
+			num1 : 69,
+			num2 : 72,
+			num3 : 1,
+			num4 : 7,
+			num5 : 48, 
+			num6 : 84,
+			num7 : 72,
+		}
+		let nnnnnnn16 = {
+			num1 : 41,
+			num2 : 50,
+			num3 : 54,
+			num4 : 62,
+			num5 : 83,
+			num6 : 99,
+			num7 : 21,
+		}
+		let nnnnnnn17 = {
+			num1 : 12,
+			num2 : 81,
+			num3 : 23,
+			num4 : 54,
+			num5 : 50,
+			num6 : 51,
+			num7 : 52,
+		}
+		let nnnnnnn18 = {
+			num1 : 97,
+			num2 : 23,
+			num3 : 41,
+			num4 : 67,
+			num5 : 90,
+			num6 : 82,
+			num7 : 43,
+		}
+		let nnnnnnn19 = {
+			num1 : 12,
+			num2 : 86,
+			num3 : 53,
+			num4 : 34,
+			num5 : 31,
+			num6 : 73,
+			num7 : 81,
+		}
+		let nnnnnnn20 = {
+			num1 : 51,
+			num2 : 92,
+			num3 : 7,
+			num4 : 37,
+			num5 : 44,
+			num6 : 95,
+			num7 : 56,
+		}
+		let nnnnnnn21 = {
+			num1 : 34,
+			num2 : 61,
+			num3 : 78,
+			num4 : 47,
+			num5 : 53,
+			num6 : 33,
+			num7 : 58,
+		}
+		let nnnnnnn22 = {
+			num1 : 34,
+			num2 : 27,
+			num3 : 93,
+			num4 : 57,
+			num5 : 43,
+			num6 : 57,
+			num7 : 87,
+		}
+		let nnnnnnn23 = {
+			num1 : 22,
+			num2 : 54,
+			num3 : 12,
+			num4 : 96,
+			num5 : 53,
+			num6 : 29,
+			num7 : 53,
+		}
+		let nnnnnnn24 = {
+			num1 : 36,
+			num2 : 32,
+			num3 : 67,
+			num4 : 76,
+			num5 : 44,
+			num6 : 92,
+			num7 : 71,
+		}
+		let nnnnnnn25 = {
+			num1 : 53,
+			num2 : 33,
+			num3 : 71,
+			num4 : 23,
+			num5 : 32,
+			num6 : 51,
+			num7 : 83,
+		}
+		let nnnnnnn26 = {
+			num1 : 54,
+			num2 : 61,
+			num3 : 23,
+			num4 : 42,
+			num5 : 83,
+			num6 : 32,
+ 			num7 : 94,
+		}
+		let nnnnnnn27 = {
+			num1 : 39,
+			num2 : 40,
+			num3 : 58,
+			num4 : 79,
+			num5 : 48,
+			num6 : 82,
+			num7 : 87,
+		}
+		let nnnnnnn28 = {
+			num1 : 20,
+			num2 : 57,
+			num3 : 53,
+			num4 : 2,
+			num5 : 84,
+			num6 : 93,
+			num7 : 50,
+		}
+		let nnnnnnn29 = {
+			num1 : 32,
+			num2 : 24,
+			num3 : 57,
+			num4 : 54,
+			num5 : 50,
+			num6 : 51,
+			num7 : 82,
+		}
+		let nnnnnnn30 = {
+			num1 : 66,
+			num2 : 12,
+			num3 : 89,
+			num4 : 49,
+			num5 : 21,
+			num6 : 54,
+			num7 : 89,
+		}
+		let ns = [nnnn1, nnnn2, nnnn3, nnnn4, nnnn5, nnnn6, nnnn7, nnnn8, nnnn9, nnnn10, nnnn11, nnnn12, nnnn13, nnnn14, nnnn15, nnnn16, nnnn17, nnnn18, nnnn19, nnnn20, nnnn21, nnnn22, nnnn23, nnnn24, nnnn25, nnnn26, nnnn27, nnnn28, nnnn29, nnnn30,];
+		let ns1 = [nnnnn1, nnnnn2, nnnnn3, nnnnn4, nnnnn5, nnnnn6, nnnnn7, nnnnn8, nnnnn9, nnnnn10, nnnnn11, nnnnn12, nnnnn13, nnnnn14, nnnnn15, nnnnn16, nnnnn17, nnnnn18, nnnnn19, nnnnn20, nnnnn21, nnnnn22, nnnnn23, nnnnn24, nnnnn25, nnnnn26, nnnnn27, nnnnn28, nnnnn29, nnnnn30,];
+		let ns2 = [nnnnnn1, nnnnnn2, nnnnnn3, nnnnnn4, nnnnnn5, nnnnnn6, nnnnnn7, nnnnnn8, nnnnnn9, nnnnnn10, nnnnnn11, nnnnnn12, nnnnnn13, nnnnnn14, nnnnnn15, nnnnnn16, nnnnnn17, nnnnnn18, nnnnnn19, nnnnnn20, nnnnnn21, nnnnnn22, nnnnnn23, nnnnnn24, nnnnnn25, nnnnnn26, nnnnnn27, nnnnnn28, nnnnnn29, nnnnnnn30,];
+		let ns3 = [nnnnnnn1, nnnnnnn2, nnnnnnn3, nnnnnnn4, nnnnnnn5, nnnnnnn6, nnnnnnn7, nnnnnnn8, nnnnnnn9, nnnnnnn10, nnnnnnn11, nnnnnnn12, nnnnnnn13, nnnnnnn14, nnnnnnn15, nnnnnnn16, nnnnnnn17, nnnnnnn18, nnnnnnn19, nnnnnnn20, nnnnnnn21, nnnnnnn22, nnnnnnn23, nnnnnnn24, nnnnnnn25, nnnnnnn26, nnnnnnn27, nnnnnnn28, nnnnnnn29, nnnnnnn30,];
+
+
+
+		let getRandomN = function() {
+			let randNum = Math.random() * 30;
+			let roundNum = Math.round(randNum);
+			return roundNum;
+		}
+
+		let nc = {
+			lol : ns[getRandomN()],
+		};
+		let nc1 = {
+			lol : ns1[getRandomN()],
+		};
+		let nc2 = {
+			lol : ns2[getRandomN()],
+		};
+		let nc3 = {
+			lol : ns3[getRandomN()],
+		};
+
+
+
+		// n4 - 2a
+			numbers[0].innerHTML = nc.lol.num1;
+			numbers[1].innerHTML = nc.lol.num2;
+			numbers[2].innerHTML = nc.lol.num3;
+			numbers[3].innerHTML = nc.lol.num4;		
+
+
+
+		// n5 - 3a
+			numbers1[0].innerHTML = nc1.lol.num1;
+			numbers1[1].innerHTML = nc1.lol.num2;
+			numbers1[2].innerHTML = nc1.lol.num3;
+			numbers1[3].innerHTML = nc1.lol.num4;
+			numbers1[4].innerHTML = nc1.lol.num5;			
+
+
+		// n6 - 3a
+			numbers2[0].innerHTML = nc2.lol.num1;
+			numbers2[1].innerHTML = nc2.lol.num2;
+			numbers2[2].innerHTML = nc2.lol.num3;
+			numbers2[3].innerHTML = nc2.lol.num4;
+			numbers2[4].innerHTML = nc2.lol.num5;
+			numbers2[5].innerHTML = nc2.lol.num6;		
+
+
+		// n7 - 4a
+			numbers3[0].innerHTML = nc3.lol.num1;
+			numbers3[1].innerHTML = nc3.lol.num2;
+			numbers3[2].innerHTML = nc3.lol.num3;
+			numbers3[3].innerHTML = nc3.lol.num4;
+			numbers3[4].innerHTML = nc3.lol.num5;
+			numbers3[5].innerHTML = nc3.lol.num6;
+			numbers3[6].innerHTML = nc3.lol.num7;
+
+
+		
+
+		
+
+
+		
+
+		htp.onclick = function() {
+			welcome.style.display = 'none';
+			howtoplay.style.display = 'block';
+		}
+		chb1.onclick = function() {			
+			welcome.style.backgroundImage = 'url(bg2.jpg)';
+			welcome.style.backgroundSize = '100% 100%';
+			howtoplay.style.backgroundImage = 'url(bg2.jpg)';
+			howtoplay.style.backgroundSize = '100% 100%';
+			playall.style.backgroundImage = 'url(bg2.jpg)';
+			playall.style.backgroundSize = '100% 100%';	
+			playall1.style.backgroundImage = 'url(bg2.jpg)';
+			playall1.style.backgroundSize = '100% 100%';
+			playall2.style.backgroundImage = 'url(bg2.jpg)';
+			playall2.style.backgroundSize = '100% 100%';
+			playall3.style.backgroundImage = 'url(bg2.jpg)';
+			playall3.style.backgroundSize = '100% 100%';			
+		}
+		chb2.onclick = function() {			
+			welcome.style.backgroundImage = 'url(bg3.jpg)';
+			welcome.style.backgroundSize = '100% 100%';
+			howtoplay.style.backgroundImage = 'url(bg3.jpg)';
+			howtoplay.style.backgroundSize = '100% 100%';
+			playall.style.backgroundImage = 'url(bg3.jpg)';
+			playall.style.backgroundSize = '100% 100%';	
+			playall1.style.backgroundImage = 'url(bg2.jpg)';
+			playall1.style.backgroundSize = '100% 100%';
+			playall2.style.backgroundImage = 'url(bg2.jpg)';
+			playall2.style.backgroundSize = '100% 100%';
+			playall3.style.backgroundImage = 'url(bg2.jpg)';
+			playall3.style.backgroundSize = '100% 100%';			
+		}
+
+		let hide = function() {
+			for(let i = 0; i <4; i++) {
+				numbers[i].style.opacity = 0;
+				numbers[0].onclick = function() {
+					if (nc.lol.num1 > 50) {
+						score = score +1;
+						document.querySelector('.score').innerHTML = score;
+						numbers[0].style.display = 'none';
+						if (score >1) {
+							playall.style.display = 'none';
+							playall1.style.display = 'block';
+							setTimeout(hide1, 5000);
+						}
+					}
+					if (nc.lol.num1 < 51) {
+						score = score -100;
+						document.querySelector('.score').innerHTML = score;
+						numbers[0].style.display = 'none';
+						if (score <0) {
+							playall.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers[1].onclick = function() {
+					if (nc.lol.num2 > 50) {
+						score = score +1;
+						document.querySelector('.score').innerHTML = score;
+						numbers[1].style.display = 'none';
+						if (score >1) {
+							playall.style.display = 'none';
+							playall1.style.display = 'block';
+							setTimeout(hide1, 5000);
+						}
+					}
+					if (nc.lol.num2 < 51) {
+						score = score -100;
+						document.querySelector('.score').innerHTML = score;
+						numbers[1].style.display = 'none';
+						if (score <0) {
+							playall.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers[2].onclick = function() {
+					if (nc.lol.num3 > 50) {
+						score = score +1;
+						document.querySelector('.score').innerHTML = score;
+						numbers[2].style.display = 'none';
+						if (score >1) {
+							playall.style.display = 'none';
+							playall1.style.display = 'block';
+							setTimeout(hide1, 5000);
+						}
+					}
+					if (nc.lol.num3 < 51) {
+						score = score -100;
+						document.querySelector('.score').innerHTML = score;
+						numbers[2].style.display = 'none';
+						if (score <0) {
+							playall.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers[3].onclick = function() {
+					if (nc.lol.num4 > 50) {
+						score = score +1;
+						document.querySelector('.score').innerHTML = score;
+						numbers[3].style.display = 'none';
+						if (score >1) {
+							playall.style.display = 'none';
+							playall1.style.display = 'block';
+							setTimeout(hide1, 5000);
+						}
+					}
+					if (nc.lol.num4 < 51) {
+						score = score -100;
+						document.querySelector('.score').innerHTML = score;
+						numbers[3].style.display = 'none';
+						if (score <0) {
+							playall.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}			
+			}
+		}
+
+		let hide1 = function() {
+			for(let i =0; i <5; i++) {
+				numbers1[i].style.opacity = 0;
+				numbers1[0].onclick = function() {
+					if (nc1.lol.num1 > 50) {
+						score1 = score1 +1;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[0].style.display = 'none';
+						if (score1 >2) {
+							playall1.style.display = 'none';
+							playall2.style.display = 'block';
+							setTimeout(hide2, 5000);
+						}
+					}
+					if (nc1.lol.num1 < 51) {
+						score1 = score1 -100;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[0].style.display = 'none';
+						if (score1 <0) {
+							playall1.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers1[1].onclick = function() {
+					if (nc1.lol.num2 > 50) {
+						score1 = score1 +1;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[1].style.display = 'none';
+						if (score1 >2) {
+							playall1.style.display = 'none';
+							playall2.style.display = 'block';
+							setTimeout(hide2, 5000);
+						}
+					}
+					if (nc1.lol.num2 < 51) {
+						score1 = score1 -100;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[1].style.display = 'none';
+						if (score1 <0) {
+							playall1.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers1[2].onclick = function() {
+					if (nc1.lol.num3 > 50) {
+						score1 = score1 +1;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[2].style.display = 'none';
+						if (score1 >2) {
+							playall1.style.display = 'none';
+							playall2.style.display = 'block';
+							setTimeout(hide2, 5000);
+						}
+					}
+					if (nc1.lol.num3 < 51) {
+						score1 = score1 -100;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[2].style.display = 'none';
+						if (score1 <0) {
+							playall1.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers1[3].onclick = function() {
+					if (nc1.lol.num4 > 50) {
+						score1 = score1 +1;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[3].style.display = 'none';
+						if (score1 >2) {
+							playall1.style.display = 'none';
+							playall2.style.display = 'block';
+							setTimeout(hide2, 5000);
+						}
+					}
+					if (nc1.lol.num4 < 51) {
+						score1 = score1 -100;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[3].style.display = 'none';
+						if (score1 <0) {
+							playall1.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers1[4].onclick = function() {
+					if (nc1.lol.num5 > 50) {
+						score1 = score1 +1;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[4].style.display = 'none';
+						if (score1 >2) {
+							playall1.style.display = 'none';
+							playall2.style.display = 'block';
+							setTimeout(hide2, 5000);
+						}
+					}
+					if (nc1.lol.num5 < 51) {
+						score1 = score1 -100;
+						document.querySelector('.score1').innerHTML = score1;
+						numbers1[4].style.display = 'none';
+						if (score1 <0) {
+							playall1.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+			}	
+		}
+
+		let hide2 = function() {
+			for(let i =0; i <6; i++) {
+				numbers2[i].style.opacity = 0;
+					numbers2[0].onclick = function() {
+					if (nc2.lol.num1 > 50) {
+						score2 = score2 +1;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[0].style.display = 'none';
+						if (score2 >2) {
+							playall2.style.display = 'none';
+							playall3.style.display = 'block';
+							setTimeout(hide3, 5000);
+						}
+					}
+					if (nc2.lol.num1 < 51) {
+						score2 = score2 -100;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[0].style.display = 'none';
+						if (score2 <0) {
+							playall2.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers2[1].onclick = function() {
+					if (nc2.lol.num2 > 50) {
+						score2 = score2 +1;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[1].style.display = 'none';
+						if (score2 >2) {
+							playall2.style.display = 'none';
+							playall3.style.display = 'block';
+							setTimeout(hide3, 5000);
+						}
+					}
+					if (nc2.lol.num2 < 51) {
+						score2 = score2 -100;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[1].style.display = 'none';
+						if (score2 <0) {
+							playall2.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers2[2].onclick = function() {
+					if (nc2.lol.num3 > 50) {
+						score2 = score2 +1;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[2].style.display = 'none';
+						if (score2 >2) {
+							playall2.style.display = 'none';
+							playall3.style.display = 'block';
+							setTimeout(hide3, 5000);
+						}
+					}
+					if (nc2.lol.num3 < 51) {
+						score2 = score2 -100;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[2].style.display = 'none';
+						if (score2 <0) {
+							playall2.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers2[3].onclick = function() {
+					if (nc2.lol.num4 > 50) {
+						score2 = score2 +1;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[3].style.display = 'none';
+						if (score2 >2) {
+							playall2.style.display = 'none';
+							playall3.style.display = 'block';
+							setTimeout(hide3, 5000);
+						}
+					}
+					if (nc2.lol.num4 < 51) {
+						score2 = score2 -100;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[3].style.display = 'none';
+						if (score2 <0) {
+							playall2.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers2[4].onclick = function() {
+					if (nc2.lol.num5 > 50) {
+						score2 = score2 +1;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[4].style.display = 'none';
+						if (score2 >2) {
+							playall2.style.display = 'none';
+							playall3.style.display = 'block';
+							setTimeout(hide3, 5000);
+						}
+					}
+					if (nc2.lol.num5 < 51) {
+						score2 = score2 -100;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[4].style.display = 'none';
+						if (score2 <0) {
+							playall2.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers2[5].onclick = function() {
+					if (nc2.lol.num6 > 50) {
+						score2 = score2 +1;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[5].style.display = 'none';
+						if (score2 >2) {
+							playall2.style.display = 'none';
+							playall3.style.display = 'block';
+							setTimeout(hide3, 5000);
+						}
+					}
+					if (nc2.lol.num6 < 51) {
+						score2 = score2 -100;
+						document.querySelector('.score2').innerHTML = score2;
+						numbers2[5].style.display = 'none';
+						if (score2 <0) {
+							playall2.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+			}
+		}
+
+		let hide3 = function() {
+			for(let i =0; i <7; i++) {
+				numbers3[i].style.opacity = 0;
+					numbers3[0].onclick = function() {
+					if (nc3.lol.num1 > 50) {
+						score2 = score2 +1;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[0].style.display = 'none';
+						if (score3 >3) {
+							playall3.style.display = 'none';
+							winner.style.display = 'block';
+						}
+					}
+					if (nc3.lol.num1 < 51) {
+						score3 = score3 -100;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[0].style.display = 'none';
+						if (score3 <0) {
+							playall3.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers3[1].onclick = function() {
+					if (nc3.lol.num2 > 50) {
+						score3 = score3 +1;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[1].style.display = 'none';
+						if (score3 >3) {
+							playall3.style.display = 'none';
+							winner.style.display = 'block';
+						}
+					}
+					if (nc3.lol.num2 < 51) {
+						score3 = score3 -100;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[1].style.display = 'none';
+						if (score3 <0) {
+							playall3.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers3[2].onclick = function() {
+					if (nc3.lol.num3 > 50) {
+						score3 = score3 +1;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[2].style.display = 'none';
+						if (score2 >3) {
+							playall3.style.display = 'none';
+							winner.style.display = 'block';
+						}
+					}
+					if (nc3.lol.num3 < 51) {
+						score3 = score3 -100;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[2].style.display = 'none';
+						if (score3 <0) {
+							playall3.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers3[3].onclick = function() {
+					if (nc3.lol.num4 > 50) {
+						score3 = score3 +1;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[3].style.display = 'none';
+						if (score3 >3) {
+							playall3.style.display = 'none';
+							winner.style.display = 'block';
+						}
+					}
+					if (nc3.lol.num4 < 51) {
+						score3 = score3 -100;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[3].style.display = 'none';
+						if (score3 <0) {
+							playall3.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers3[4].onclick = function() {
+					if (nc3.lol.num5 > 50) {
+						score3 = score3 +1;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[4].style.display = 'none';
+						if (score3 >3) {
+							playall3.style.display = 'none';
+							winner.style.display = 'block';
+						}
+					}
+					if (nc3.lol.num5 < 51) {
+						score3 = score3 -100;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[4].style.display = 'none';
+						if (score3 <0) {
+							playall3.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers3[5].onclick = function() {
+					if (nc3.lol.num6 > 50) {
+						score3 = score3 +1;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[5].style.display = 'none';
+						if (score3 >3) {
+							playall3.style.display = 'none';
+							winner.style.display = 'block';
+						}
+					}
+					if (nc3.lol.num6 < 51) {
+						score3 = score3 -100;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[5].style.display = 'none';
+						if (score3 <0) {
+							playall3.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+				numbers3[6].onclick = function() {
+					if (nc3.lol.num7 > 50) {
+						score3 = score3 +1;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[6].style.display = 'none';
+						if (score3 >3) {
+							playall3.style.display = 'none';
+							winner.style.display = 'block';
+						}
+					}
+					if (nc3.lol.num7 < 51) {
+						score3 = score3 -100;
+						document.querySelector('.score3').innerHTML = score3;
+						numbers3[6].style.display = 'none';
+						if (score3 <0) {
+							playall3.style.display = 'none';
+							looser.style.display = 'block';
+						}
+					}
+				}
+			}
+		}
+
+		gb.onclick = function() {
+			welcome.style.display = 'block';
+			howtoplay.style.display = 'none';
+		}
+		play.onclick = function() {
+			welcome.style.display = 'none';
+			playall.style.display = 'block';
+			setTimeout(hide, 5000);
+			setTimeout(timeout1, 60000);
+		}
+		let timeout1 = function() {
+			playall1.style.display = 'none';
+			looser.style.display = 'block';		
+		}
+		
+
+
+
+
+	</script>
+</body>
+</html>
